@@ -2,6 +2,16 @@
 
 Convert images and SVG artwork into validated, high-quality STL relief models directly in your browser. This repository contains the complete editable application, pinned dependencies, tests, and GitHub Pages deployment workflow.
 
+## Client access
+
+Clients sign in with their own email/password account and need administrator
+approval before the hosted workspace opens. The administrator can search,
+approve, decline, and revoke individual accounts from the **Clients** screen.
+Account data and approval permissions are enforced by Supabase; artwork stays on
+the user's device. See [Client access setup](CLIENT_ACCESS_SETUP.md) for required
+configuration, email delivery, administrator setup, and the limitations of
+protecting a public browser-based converter.
+
 ## Five-million-triangle edition
 
 - Up to **5,000,000 triangles** and **1,750,000 sampled curve points** per model.
