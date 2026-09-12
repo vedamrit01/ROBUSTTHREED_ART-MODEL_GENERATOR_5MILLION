@@ -31,6 +31,10 @@ if(isMainThread) {
     function visit(node){
       if(ts.isNewExpression(node)&&ts.isIdentifier(node.expression)&&node.expression.text==='Worker'){
         assert.ok(node.arguments?.length,'Worker requires an entry URL.');
+        // Auth libraries can ship a separate, runtime-configured heartbeat
+        // Worker. Select the emitted conversion entry, whose static URL must
+        // still be present exactly once and resolve under the repository path.
+        if(!node.arguments[0].getText(source).includes('conversion.worker-'))return;
         const expression=node.arguments[0].getText(source).replace(/import\.meta\.url/g,JSON.stringify(new URL(chunks+'/'+chunk,pageUrl).href));
         const argument=runInNewContext(expression,{URL,location:pageUrl,window:{location:pageUrl}},{timeout:500});
         const url=new URL(String(argument),pageUrl);

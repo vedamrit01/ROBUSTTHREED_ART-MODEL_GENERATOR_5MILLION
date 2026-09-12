@@ -4,6 +4,7 @@ import {fileURLToPath} from 'node:url';
 
 export default defineConfig({
   root:fileURLToPath(new URL('./github-pages',import.meta.url)),
+  envDir:fileURLToPath(new URL('./',import.meta.url)),
   // Relative assets work on a repository path, a user site or a custom domain.
   base:'./',
   publicDir:fileURLToPath(new URL('./public',import.meta.url)),
