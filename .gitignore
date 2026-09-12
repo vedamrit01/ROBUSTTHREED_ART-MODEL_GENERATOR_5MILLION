@@ -1,0 +1,7 @@
+node_modules/
+dist-pages/
+docs/
+.sites-runtime/
+.env*
+*.tsbuildinfo
+.DS_Store
